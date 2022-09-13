@@ -2,21 +2,21 @@
 import MainHead from "../components/MainHead.astro";
 import Footer from "../components/Footer.astro";
 import Nav from "../components/Nav.astro";
-import PortfolioPreview from "../components/PortfolioPreview.astro";
+import ExperiencesPreview from "../components/ExperiencesPreview.astro";
 
-const projects = (await Astro.glob("./project/**/*.md"))
+const experiences = (await Astro.glob("./experiences/*.md"))
   .filter(({ frontmatter }) => !!frontmatter.publishDate)
   .sort(
     (a, b) =>
-      new Date(b.frontmatter.publishDate).valueOf() -
-      new Date(a.frontmatter.publishDate).valueOf()
+      new Date(b.frontmatter.start).valueOf() -
+      new Date(a.frontmatter.end).valueOf()
   );
 ---
 
 <html lang="en">
   <head>
     <MainHead
-      title="All Projects | Arseniy Kotov"
+      title="All Experiences | Arseniy Kotov"
       description="Learn about Arseniy Kotov's accomplishments and experience."
     />
     <style>
@@ -35,7 +35,11 @@ const projects = (await Astro.glob("./project/**/*.md"))
     <div class="wrapper">
       <h1 class="title">All Projects and Experience</h1>
       <div class="grid">
-        {projects.map((project) => <PortfolioPreview project={project} />)}
+        {
+          experiences.map((experience) => (
+            <ExperiencesPreview experience={experience} />
+          ))
+        }
       </div>
     </div>
     <Footer />

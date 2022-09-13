@@ -4,10 +4,13 @@ import MainHead from "../components/MainHead.astro";
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
 import PortfolioPreview from "../components/PortfolioPreview.astro";
+import PatentsPreview from "../components/PatentsPreview.astro";
 
 // Data Fetching: List all Markdown posts in the repo.
-const projects = await Astro.glob("./project/**/*.md");
-const featuredProject = projects[0];
+
+const patents = await Astro.glob("./patents/**/*.md");
+
+const featuredPatent = patents[0];
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
@@ -42,9 +45,17 @@ const featuredProject = projects[0];
         height: auto;
       }
 
+      .space {
+        display: block;
+        width: 100%;
+        height: auto;
+        left: 0;
+        background-image: url("/assets/Final_M101_V1.jpg");
+      }
+
       .gradient,
       .gradient2 {
-        background-image: url("/assets/mesh-gradient.jpg");
+        background-image: url("/assets/mesh-gradient-3.png");
         background-size: cover;
         pointer-events: none;
         mix-blend-mode: screen;
@@ -137,7 +148,7 @@ const featuredProject = projects[0];
       }
 
       .role:nth-of-type(1) .invert {
-        background-color: var(--c-pink);
+        background-color: var(--c-white);
       }
 
       .role:nth-of-type(2) .invert {
@@ -202,14 +213,7 @@ const featuredProject = projects[0];
   <body>
     <Nav />
     <header class="hero">
-      <img
-        width="1600"
-        height="1131"
-        class="img"
-        src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1200&q=75"
-        srcset="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1200&q=75 800w,https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1200&q=75 1200w,https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1600&q=75 1600w,https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=2400&q=75 2400w"
-        sizes="(max-width: 800px) 800px, (max-width: 1200px) 1200px, (max-width: 1600px) 1600px, (max-width: 2400px) 2400px, 1200px"
-      />
+      <img width="1600" height="1131" class="space" />
       <div class="gradient"></div>
       <div class="gradient2"></div>
       <div class="overlay">
@@ -217,14 +221,14 @@ const featuredProject = projects[0];
           <small class="subtitle">The personal site of</small>Arseniy Kotov
         </h1>
         <div class="roles">
-          <a href="/experience" class="role"
-            >👩‍💻 Experience <span class="invert">👩‍💻 Experience</span>
+          <a href="/experiences" class="role"
+            >🤵‍♂️ Experience <span class="invert">🤵‍♂️ Experience</span>
           </a>
           <a href="/patents" class="role"
-            >🎤 Patents <span class="invert">🎤 Patents</span>
+            >✍️ Patents <span class="invert">✍️ Patents</span>
           </a>
-          <a href="/projects" class="role"
-            >🎤 Projects <span class="invert">🎤 Projects</span>
+          <a href="/talks" class="role"
+            >🎤 Projects <span class="invert">🎤 Talks</span>
           </a>
         </div>
       </div>
@@ -233,24 +237,17 @@ const featuredProject = projects[0];
       <div class="grid">
         <div class="section">
           <h3 class="sectionTitle">Selected Work</h3>
-          <PortfolioPreview project={featuredProject} />
+          <PatentsPreview patent={featuredPatent} />
           <div class="buttonContainer">
-            <a href="/products/" class="button">View All</a>
+            <a href="/patents/" class="button">View All</a>
           </div>
         </div>
         <div class="section">
           <h3 class="sectionTitle">About me</h3>
           <p class="bio">
-            <span>Hello!</span> I’m Jeanine, and this is my website. It was made
-            using{" "}
-            <a
-              href="https://github.com/withastro/astro"
-              target="_blank"
-              rel="nofollow"
-            >
-              Astro</a
-            >, a new way to build static sites. This is just an example template
-            for you to modify.
+            <span>Hello!</span> I’m Arseniy, and this is my website. I live to solve
+            customer problems and create new out-of-the-box solutions. I'm a software
+            developer with a passion for customer-driven front-end development.
           </p>
           <p>
             <a href="/about">Read more</a>
