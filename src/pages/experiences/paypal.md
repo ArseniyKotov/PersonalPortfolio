@@ -1,7 +1,9 @@
 ---
 layout: ../../layouts/experience.astro
 title: PayPal
-img: ../../public/assets/paypal.jpeg
+img: /assets/paypal-yellow.png
+start: July 2017
+end: August 2021
 description: |
   Lead full-stack software engineer focusing on the merchant experience
 tags:

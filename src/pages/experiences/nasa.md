@@ -1,8 +1,11 @@
 ---
 layout: ../../layouts/experience.astro
 title: NASA
-publishDate: 2020-03-02 00:00:00
-img: https://images.unsplash.com/photo-1547234935-80c7145ec969?fit=crop&w=1400&h=700&q=75
+start: June 2013
+end: August 2013
+img: /assets/cfd-highres.png
+credit: https://www.nas.nasa.gov/SC18/demos/demo7.html
+more: https://www.nas.nasa.gov/publications/ams/2014/06-10-14.html
 description: |
   Intern for the Computational Fluid Dynamics department
 tags:
@@ -16,4 +19,4 @@ tags:
 
 - Validate in-house flow solver called LAVA
 - Test and optimize new body geometry to optimize the reduction of the sonic boom
-- Create new programs to improve current testing methods (such as C++, Python, VBA, Unix).-
+- Create new programs to improve current testing methods (such as C++, Python, VBA, Unix).

@@ -1,9 +1,9 @@
 ---
 layout: ../../layouts/experience.astro
 title: Adobe
-start: 08/01/2021
-end: 09/16/2022
-img: ../../assets/adobe.jpeg
+start: August 2021
+end: September 2022
+img: ../../assets/adobe2.jpeg
 description: |
   Lead front end engineer for Neural Filters team on the web
 tags:

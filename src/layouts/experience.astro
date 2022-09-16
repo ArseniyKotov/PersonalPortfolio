@@ -3,7 +3,8 @@ import MainHead from "../components/MainHead.astro";
 import Footer from "../components/Footer.astro";
 import Nav from "../components/Nav.astro";
 
-const { content } = Astro.props;
+const { content, frontmatter } = Astro.props;
+const { credit } = frontmatter;
 ---
 
 <html lang={content.lang || "en"}>
@@ -76,7 +77,37 @@ const { content } = Astro.props;
 
       footer {
         text-align: center;
-        margin-top: 3rem;
+      }
+
+      .seeMore {
+        display: inline-block;
+        border: 3px solid currentColor;
+        padding: 0.5em 1em;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: transform 300ms cubic-bezier(0, 0.4, 0.6, 1),
+          border-color 1s linear;
+        transform: translateY(25%);
+      }
+
+      .seeMore:hover {
+        transform: translateY(0);
+        border-color: rgba(255, 255, 255, 0.625);
+        display: inline-block;
+        border: 3px solid currentColor;
+        padding: 0.5em 1em;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-decoration: underline;
+      }
+
+      .imageCredit {
+        font-size: var(--f-u0);
+        color: var(--t-bg);
+        text-align: center;
+        margin-top: 1rem;
+        text-align: center;
       }
     </style>
   </head>
@@ -87,7 +118,7 @@ const { content } = Astro.props;
     </header>
     <div class="leadIn">
       <div class="wrapper">
-        {content.tags.map((t) => <span class="tag">{t}</span>)}
+        {content.tags.map((t: string) => <span class="tag">{t}</span>)}
         <h3 class="tagline">{content.description}</h3>
       </div>
     </div>
@@ -95,8 +126,13 @@ const { content } = Astro.props;
       <div class="content"><slot /></div>
     </div>
     <footer>
-      <a href="/experiences" class="button">See More</a>
-    </footer>
-    <Footer />
+      <a href="/experiences" class="seeMore">See More</a>
+      <div class="imageCredit"><a href={credit}>Image credit</a></div><a
+        href={credit}
+      >
+      </a>
+    </footer><a href={credit}>
+      <Footer />
+    </a>
   </body>
 </html>

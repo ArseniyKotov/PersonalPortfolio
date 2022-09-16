@@ -4,13 +4,13 @@ import Footer from "../components/Footer.astro";
 import Nav from "../components/Nav.astro";
 import ExperiencesPreview from "../components/ExperiencesPreview.astro";
 
-const experiences = (await Astro.glob("./experiences/*.md"))
-  .filter(({ frontmatter }) => !!frontmatter.publishDate)
-  .sort(
-    (a, b) =>
-      new Date(b.frontmatter.start).valueOf() -
-      new Date(a.frontmatter.end).valueOf()
-  );
+const list = await Astro.glob("./experiences/*.md");
+
+const experiences = (await Astro.glob("./experiences/*.md")).sort(
+  (a, b) =>
+    new Date(b.frontmatter.start).valueOf() -
+    new Date(a.frontmatter.end).valueOf()
+);
 ---
 
 <html lang="en">
